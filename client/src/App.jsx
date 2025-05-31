@@ -8,7 +8,7 @@ import { Logout } from "./pages/Logout";
 import { Account } from "./pages/Account";
 import { SinglePage } from "./pages/SinglePage";
 
-axios.defaults.baseURL = "http://localhost:3000/api/auth";
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 
 export const App = () => {
   return (
@@ -21,7 +21,10 @@ export const App = () => {
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
             <Route path="/account/:subpage?" element={<Account />}></Route>
-            <Route path="/account/:subpage/:action" element={<Account />}></Route>
+            <Route
+              path="/account/:subpage/:action"
+              element={<Account />}
+            ></Route>
             <Route path="/place/:id" element={<SinglePage />}></Route>
           </Route>
         </Routes>

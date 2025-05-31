@@ -90,6 +90,13 @@ app.get(`/place/:id`, async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false,
+  });
+});
+
 connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(`Listening at port 3000`);
