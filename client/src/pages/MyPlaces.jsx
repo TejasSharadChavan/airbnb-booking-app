@@ -26,7 +26,7 @@ export const MyPlaces = ({ places }) => {
                 <div className="h-50 w-80 overflow-hidden grow shrink-0 justify-center rounded-4xl">
                   {data.photos.length > 0 && (
                     <img
-                      src={`http://localhost:3000/uploads/${data.photos[0]}`}
+                      src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${data.photos[0]}`}
                       alt="image 1"
                       className="w-full h-full object-cover"
                     />

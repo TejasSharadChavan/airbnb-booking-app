@@ -28,7 +28,7 @@ export const PlacesPage = () => {
 
   const getPlaces = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/places`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/places`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.status === 200) {
@@ -61,7 +61,7 @@ export const PlacesPage = () => {
         data.append("photos", file);
       }
 
-      const response = await axios.post("http://localhost:3000/upload", data, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/upload`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       const { data: filenames } = response;
@@ -98,7 +98,7 @@ export const PlacesPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/places`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/places`,
         {
           title,
           address,
@@ -132,7 +132,7 @@ export const PlacesPage = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/places/${action}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/places/${action}`,
         {
           title,
           address,
@@ -194,7 +194,7 @@ export const PlacesPage = () => {
   useEffect(() => {
     if (action && action !== "new") {
       axios
-        .get(`http://localhost:3000/api/places/${action}`, {
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/places/${action}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -221,7 +221,7 @@ export const PlacesPage = () => {
     if (confirm) {
       try {
         const response = await axios.delete(
-          `http://localhost:3000/api/places/${action}`,
+          `${import.meta.env.VITE_API_BASE_URL}/api/places/${action}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -322,7 +322,7 @@ export const PlacesPage = () => {
                     <div className="h-32 border rounded-md flex relative" key={key}>
                       <img
                         className="w-full h-full object-cover rounded-md"
-                        src={`http://localhost:3000/uploads/${link}`}
+                        src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${link}`}
                         alt=""
                       />
                       {/* Delete Button */}

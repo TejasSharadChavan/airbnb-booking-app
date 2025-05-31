@@ -15,7 +15,7 @@ export const SinglePage = () => {
 
   const getSinglePlaceData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/place/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/place/${id}`);
       setPlace(response.data);
     } catch (error) {
       console.error("Error fetching place:", error);
@@ -50,7 +50,7 @@ export const SinglePage = () => {
               <div className="w-1/2 mx-auto" key={key}>
                 <img
                   className="w-full h-150"
-                  src={`http://localhost:3000/uploads/${photo}`}
+                  src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${photo}`}
                   alt=""
                 />
               </div>
@@ -87,7 +87,7 @@ export const SinglePage = () => {
                   <img
                     onClick={() => setShowAllPhotos(true)}
                     className="w-full h-64 sm:h-full object-cover rounded-lg cursor-pointer"
-                    src={`http://localhost:3000/uploads/${place.photos[0]}`}
+                    src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${place.photos[0]}`}
                     alt="Main"
                   />
                 )}
@@ -99,7 +99,7 @@ export const SinglePage = () => {
                   <img
                     onClick={() => setShowAllPhotos(true)}
                     className="w-full h-64 sm:h-full object-cover rounded-lg cursor-pointer"
-                    src={`http://localhost:3000/uploads/${place.photos[1]}`}
+                    src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${place.photos[1]}`}
                     alt="Second"
                   />
                 )}
@@ -111,7 +111,7 @@ export const SinglePage = () => {
                   <img
                     onClick={() => setShowAllPhotos(true)}
                     className="w-full h-full object-cover rounded-lg cursor-pointer"
-                    src={`http://localhost:3000/uploads/${place.photos[2]}`}
+                    src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${place.photos[2]}`}
                     alt="Third"
                   />
                 )}

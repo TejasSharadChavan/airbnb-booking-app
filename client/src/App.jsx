@@ -8,7 +8,7 @@ import { Logout } from "./pages/Logout";
 import { Account } from "./pages/Account";
 import { SinglePage } from "./pages/SinglePage";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+axios.defaults.baseURL = `${import.meta.env.VITE_API_BASE_URL}/api/auth`;
 
 export const App = () => {
   return (

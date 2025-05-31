@@ -16,7 +16,7 @@ export const MainPage = () => {
 
   const getPlacesData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/data`);
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/data`);
       if (response.status === 200) {
         setPlaces(response.data);
         setFilteredPlaces(response.data);
@@ -53,7 +53,7 @@ export const MainPage = () => {
                   {place.photos?.[0] && (
                     <img
                       className="w-full h-full object-cover"
-                      src={`http://localhost:3000/uploads/${place.photos[0]}`}
+                      src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${place.photos[0]}`}
                       alt={place.title}
                     />
                   )}

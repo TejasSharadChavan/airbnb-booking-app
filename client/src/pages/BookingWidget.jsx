@@ -49,7 +49,7 @@ export const BookingWidget = ({ place, isloggedIn }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/bookings",
+        `${import.meta.env.VITE_API_BASE_URL}/api/bookings`,
         {
           place: place._id,
           checkIn,

@@ -48,7 +48,7 @@ export const DisplayBookings = () => {
             <div className="w-full md:w-50 h-40 overflow-hidden rounded-lg">
               {booking.place.photos?.length > 0 && (
                 <img
-                  src={`http://localhost:3000/uploads/${booking.place.photos[0]}`}
+                  src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${booking.place.photos[0]}`}
                   alt="Place"
                   className="w-full h-full object-cover"
                 />
