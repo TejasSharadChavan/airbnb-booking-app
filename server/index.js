@@ -20,13 +20,12 @@ const PORT = process.env.PORT | 3000;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://airbnb-booking-app-99ow.onrender.com"
+  "https://airbnb-booking-app-99ow.onrender.com",
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (e.g., mobile apps, curl)
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
