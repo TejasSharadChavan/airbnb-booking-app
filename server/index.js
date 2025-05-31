@@ -17,25 +17,17 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT | 3000;
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://airbnb-booking-app-99ow.onrender.com",
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
     credentials: true,
-    methods: "GET, PUT, POST, DELETE, PATCH, HEAD",
+    origin: [
+      "https://airbnb-booking-app-99ow.onrender.com", 
+      "http://localhost:5173"
+    ],
+    methods: "GET,PUT,POST,DELETE,PATCH,HEAD",
   })
 );
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
